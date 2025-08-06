@@ -1,6 +1,6 @@
 <?php
 
-
+    // get page when click link website
     $page = $_GET['page'] ?? 'homepage';
     
     // call all controllers
@@ -11,6 +11,7 @@
     require_once 'app/controllers/HomeController.php';
     require_once 'app/controllers/ProductController.php';
 
+    // check function
     $func = $_POST['func'] ?? null;
 
     switch($page){
@@ -22,6 +23,14 @@
 
         // for homepage
         case 'homepage':
+            $home = new HomeController();
+            switch($func){
+
+                // default page to index function in HomeController
+                default:
+                    $home->index();
+                break;
+            }
             
         break;
         

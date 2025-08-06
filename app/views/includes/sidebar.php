@@ -3,7 +3,7 @@
 
     <!-- logo -->
     <div class="w-100 py-3 text-light">
-        <img src="../assets/image/logo.png" alt="" class="w-25 mb-2">
+        <img src="app/assets/image/logo.png" alt="" class="w-25 mb-2">
         <h2 class="mb-0">SKIN8</h2>
         <p>leap ey leap tv</p>
     </div>
