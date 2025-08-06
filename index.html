@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKIN8 | Dashboard</title>
+    <link rel="shortcut icon" href="../../app/assets/image/logo.png" type="image/x-icon">
+    <!-- link css -->
+    <link rel="stylesheet" href="../assets/style/style.css">
+    <!-- link css -->
+
+    <!-- link bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <!-- link bootstrap -->
+
+    <!-- link jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- link jquery -->
+</head>
+
+<body class="font-quicksand">
+    <div class="container-fluid p-0 d-none d-lg-flex">
+        <!-- Side bar -->
+        <aside class="col-2 bg-dark sticky-top p-4 text-center " style="height: 100vh;">
+
+            <!-- logo -->
+            <div class="w-100 py-3 text-light">
+                <img src="../assets/image/logo.png" alt="" class="w-25 mb-2">
+                <h2 class="mb-0">SKIN8</h2>
+                <p>leap ey leap tv</p>
+            </div>
+            <!-- logo -->
+
+            <!-- menu -->
+            <ul class="list-unstyled">
+                <a href="" class="btn btn-outline-secondary text-light w-100 my-1">             
+                    <li class="d-flex justify-content-start fs-6 py-1 ">
+                        <i class="bi bi-house-door-fill me-3"></i>
+                        Home
+                    </li> 
+                </a>
+                <a href="" class="btn btn-outline-secondary text-light w-100 my-1">             
+                    <li class="d-flex justify-content-start fs-6 py-1 ">
+                        <i class="bi bi-people-fill me-3"></i>
+                        Customers
+                    </li> 
+                </a>
+                <a href="" class="btn btn-outline-secondary text-light w-100 my-1">             
+                    <li class="d-flex justify-content-start fs-6 py-1">
+                        <i class="bi bi-tag-fill me-3"></i>
+                        Delivery Price
+                    </li> 
+                </a>
+                <a href="" class="btn btn-outline-secondary text-light w-100 my-1">             
+                    <li class="d-flex justify-content-start fs-6 py-1">
+                        <i class="bi bi-hash me-3"></i>
+                        Category
+                    </li> 
+                </a>
+                <a href="" class="btn btn-outline-secondary text-light w-100  my-1">             
+                    <li class="d-flex justify-content-start fs-6 py-1">
+                        <i class="bi bi-bag-fill me-3"></i>
+                        Product
+                    </li> 
+                </a>
+            </ul>
+            <!-- menu -->
+
+            <!-- btn-logout -->
+            <div class="position-absolute bottom-0 w-100 start-0 p-3">
+                <button class="btn btn-danger w-100 fw-medium">
+                    <i class="bi bi-box-arrow-left"></i>
+                    Logout
+                </button>
+            </div>
+            <!-- btn-logout -->
+        </aside>
+
+        <!-- Content -->
+        <main class="col-10">
+            <header class="py-2 border-bottom px-3 d-flex justify-content-between">
+               <div class="d-flex align-items-center">
+                    <div style="height: 30px; width: 30px;" 
+                    class="rounded-circle bg-secondary me-2 overflow-hidden border border-dark border-2">
+                        <img src="../assets/image/teakpa.png" alt="" class="w-100 h-100 object-fit-cover">
+                    </div>
+                    <h6 class="m-0">Mr.TeaK'pa</h6>
+               </div>
+            </header>
+
+            <!-- Home Section -->
+            <section class="p-4">
+                <h2 class="m-0">Welcom Back Admin Tea K'pa</h2>
+                <p>You can order Skincare for your customer now.</p>
+
+                <!-- card-section -->
+                <div class="row m-0">
+
+                    <div class="col-3 pe-3 ps-0 py-1">
+                        <div class="rounded-3 border py-2 px-3">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="m-0">Total Orders</h4>
+                                <i class="bi bi-arrow-up-right-circle fs-2"></i>
+                            </div>
+                            <div>
+                                <h1 class="m-0">30</h1>
+                                <span class="text-secondary"><i class="bi bi-graph-up-arrow"></i> This month </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-3 pe-3 ps-0 py-1">
+                        <div class="rounded-3 border py-2 px-3">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="m-0">Total Customers</h4>
+                                <i class="bi bi-person-circle fs-2"></i>
+                            </div>
+                            <div>
+                                <h1 class="m-0">50</h1>
+                                <span class="text-secondary"><i class="bi bi-graph-up-arrow"></i> This month </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-3 pe-3 ps-0 py-1">
+                        <div class="rounded-3 border py-2 px-3">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="m-0">Income</h4>
+                                <i class="bi bi-coin fs-2"></i>
+                            </div>
+                            <div>
+                                <h1 class="m-0">$0.5</h1>
+                                <span class="text-secondary"><i class="bi bi-graph-up-arrow"></i> This month </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-3 pe-3 ps-0 py-1">
+                        <div class="rounded-3 border py-2 px-3">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="m-0">Total Products</h4>
+                                <i class="bi bi-bag-heart fs-2"></i>
+                            </div>
+                            <div>
+                                <h1 class="m-0">120</h1>
+                                <span class="text-secondary"><i class="bi bi-graph-up-arrow"></i> All products </span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- card-section -->
+                
+                <!-- section order -->
+                <div class="row m-0 pe-1 mt-2">
+
+                    <!-- table product -->
+                    <div class="col-7 ps-0 pe-3" >
+                        <div class=" py-2 d-flex justify-content-between align-items-center">
+                            <form action="" class="col-6 d-flex border rounded-3">
+                                <input required type="text" class="form-control shadow-none border-0" placeholder="Search">
+                                <button class="btn ">
+                                    <i class="bi bi-search"></i>
+                                </button>
+                            </form>
+
+                            <div>
+                                <button class="btn btn-outline-dark">
+                                    Export to Excel
+                                    <i class="bi bi-cloud-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="rounded-3 overflow-auto " style="height: 300px;">
+                            <table class="table table-striped">
+                                <thead class="table-dark sticky-top">
+                                    <tr>
+                                        <td>NO<sup>o</sup></td>
+                                        <td>Item/Type</td>
+                                        <td>Stock</td>
+                                        <td colspan="2">Price</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="align-middle">
+                                        <td>#1</td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <img src="" alt="" style="width: 40px;height: 40px;">
+                                                <div class="ms-1">
+                                                    <p class="m-0 fw-medium">Item Name U90</p>
+                                                    <p class="m-0 text-secondary" style="font-size: 12px;">Foam</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>x10</td>
+                                        <td>
+                                            <span class="text-danger fw-medium">$0.50</span>
+                                        </td>
+                                        <td class="text-end">
+                                            <button class="btn btn-dark fw-bolder p-1 ">
+                                                🛒
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- table product -->
+
+                    <!-- cart order-->
+                    <div class="col-5 py-2">
+
+                        <div class=" rounded-3 border p-3">
+                            <h4 class="m-0 text-center">SKIN8</h4>
+                            <p class=",m-0 text-center">cart</p>
+                            <div style="height: 180px;" class="overflow-auto border-bottom">
+                                <table class="table">
+                                    <thead class="sticky-top">
+                                        <tr>
+                                            <td class="text-secondary">#</td>
+                                            <td class="text-secondary">Item</td>
+                                            <td class="text-secondary">Price</td>
+                                            <td class="text-secondary">Qty</td>
+                                            <td class="text-secondary">Sub-Total</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- <tr class="align-middle">
+                                            <td>1</td>
+                                            <td>Lip Stick</td>
+                                            <td>$1.50</td>
+                                            <td class="col-2">
+                                                <input min="0" value="2" type="number" name="" id="" class="form-control shadow-none border">
+                                            </td>
+                                            <td>
+                                                $3.00
+                                            </td>
+                                        </tr>
+                                        <tr class="align-middle">
+                                            <td>1</td>
+                                            <td>Lip Stick</td>
+                                            <td>$1.50</td>
+                                            <td class="col-2">
+                                                <input min="0" value="2" type="number" name="" id="" class="form-control shadow-none border">
+                                            </td>
+                                            <td>
+                                                $3.00
+                                            </td>
+                                        </tr>
+                                        <tr class="align-middle">
+                                            <td>1</td>
+                                            <td>Lip Stick</td>
+                                            <td>$1.50</td>
+                                            <td class="col-2">
+                                                <input min="0" value="2" type="number" name="" id="" class="form-control shadow-none border">
+                                            </td>
+                                            <td>
+                                                $3.00
+                                            </td>
+                                        </tr> -->
+                                        <tr>
+                                            <td colspan="5 " class="text-center text-secondary">No Item order...</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+
+                                <h5 class="m-0 ">Total: $9.00</h5>
+                                <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#process-order">
+                                    Process Order
+                                </button>
+                            </div>
+                        </div>
+                        
+                       <!-- Modal -->
+                        <div class="modal fade" id="process-order" data-bs-backdrop="static">
+                            <div class="modal-dialog  modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5">Customer Destination</h1>
+                                        <button type="button" class="btn-close shadow-none border" data-bs-dismiss="modal"></button>
+                                    </div>
+                                    <div class="modal-body px-4">
+                                        <form action="">
+                                            <label for="" class="form-label">Customer Tel*</label>
+                                            <input required type="text" name="" id="" class="form-control border shadow-none mb-2" placeholder="Enter Customer Tel (+855)">
+                                            <label for="" class="form-label">Customer Location*</label>
+                                            <select name="" id=""  class="form-select border shadow-none mb-2" >
+                                                <option value="" disabled selected>Select Location</option>
+                                                <option value="">Phnom Penh</option>
+                                                <option value="">Kandal</option>
+                                            </select>
+                                            <label for="" class="form-label">Delievery Price*</label>
+                                            <select name="" id=""  class="form-select border shadow-none" >
+                                                <option value="" disabled selected>Select Delievery Price</option>
+                                                <option value="">$1.00</option>
+                                                <option value="">$2.00</option>
+                                            </select>
+                                            <div class="modal-footer mt-4">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-dark">Confirm Order</button>
+                                            </div>
+                                        </form>
+                                    </div>                                   
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Modal -->
+                    </div>
+                    <!-- cart order-->
+                </div>
+                <!-- section order -->
+                 
+            </section>
+            <!-- Home Section -->
+
+
+            <!-- Customer Section -->
+            <section class="p-4 border-top">
+                <h2 class="m-0">Customer Overviews</h2>
+                <p>You can view your customers here.</p>
+
+                <div>
+                    <table class="table">
+                        <thead class="table-dark">
+                            <tr>
+                                <td>#</td>
+                                <td>Customer Tel</td>
+                                <td>Location</td>
+                                <td>Item</td>
+                                <td>Price</td>
+                                <td>Qty</td>
+                                <td>Total</td>
+                                <td>Order Date</td>
+                                <td class="text-center">Action</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="align-middle">
+                                <td>1</td>
+                                <td>+855 90 203 030</td>
+                                <td>Wat Phnom</td>
+                                <td>Lip Stick</td>
+                                <td>$1.00</td>
+                                <td>x4</td>
+                                <td>$4.00</td>
+                                <td>
+                                    <span class="text-secondary bg-secondary-subtle rounded-3 px-2 fw-medium">2025-07-31</span>
+                                </td>
+                                <td class="text-center">
+                                    <button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete-cus">
+                                        <i class="bi bi-trash3-fill"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="delete-cus" data-bs-backdrop="static">
+                        <div class="modal-dialog  modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5">Delete Customer</h1>
+                                    <button type="button" class="btn-close shadow-none border" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body px-4">
+                                    <form action="">
+                                        <h4 class="text-center">Are you sure you want to <span class="text-danger">delete</span> ?🤔</h4>
+                                        <div class="modal-footer pb-0">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                                            <button type="button" class="btn btn-danger">Yes</button>
+                                        </div>
+                                    </form>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal -->
+                </div>
+            </section>
+            <!-- Customer Section -->
+
+
+            <!-- Delivery Section -->
+            <section class="p-4 border-top">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h2 class="m-0">Delivery Overviews</h2>
+                        <p>You can customize your own Delivery Price.</p>
+                    </div>
+
+                    <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#addcate">
+                        Add Delivery Price +
+                    </button>
+                </div>
+
+                <div>
+                    <table class="table">
+                        <thead class="table-dark">
+                            <tr>
+                                <td>#</td>
+                                <td>Category</td>
+                                <td>Delivery Price</td>
+                                <td>Created at</td>
+                                <td class="text-center">Action</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="align-middle">
+                                <td>1</td>
+                                <td>City</td>
+                                <td class="text-danger">$1.00</td>
+                                <td>
+                                    <span class="bg-secondary-subtle text-secondary rounded-3 fw-medium px-1">
+                                        Data was created : 2025-07-31
+                                    </span>
+                                </td>
+                                <td class="text-center">
+                                     <button title="Edit Data" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#updatecate">
+                                        <i class="bi bi-pen-fill"></i>
+                                    </button>
+                                    <button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deletecate">
+                                        <i class="bi bi-trash3-fill"></i>
+                                    </button>
+                                </td>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- Modal Add Delivery Price -->
+                    <div class="modal fade" id="addcate" data-bs-backdrop="static">
+                        <div class="modal-dialog  modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5">Delivery Modal</h1>
+                                    <button type="button" class="btn-close shadow-none border" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body px-4">
+                                    <form action="">
+                                        <div class="d-flex mb-2">
+                                            <div class="col-6 pe-2">
+                                                <label for="" class="fw-medium form-label">Delivery Type*</label>
+                                                <input required class="form-control shadow-none border" type="text" name="category" id="category" placeholder="Enter type of delievery">
+                                            </div>
+                                            <div class="col-6">
+                                                <label for="" class="fw-medium form-label">Delivery Price*</label>
+                                                <input required class="form-control shadow-none border" type="text" name="price" id="price" placeholder="Enter you category price">
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer pb-0">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
+                                    </form>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal Add Delivery Price -->
+                    
+                    <!-- Modal Update Delivery Price -->
+                    <div class="modal fade" id="updatecate" data-bs-backdrop="static">
+                        <div class="modal-dialog  modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5">Delivery Modal</h1>
+                                    <button type="button" class="btn-close shadow-none border" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body px-4">
+                                    <form action="">
+                                        <div class="d-flex mb-2">
+                                            <div class="col-6 pe-2">
+                                                <label for="" class="fw-medium form-label">Delivery Type*</label>
+                                                <input required class="form-control shadow-none border" type="text" name="category" id="category" placeholder="Enter type of delievery">
+                                            </div>
+                                            <div class="col-6">
+                                                <label for="" class="fw-medium form-label">Delivery Price*</label>
+                                                <input required class="form-control shadow-none border" type="text" name="price" id="price" placeholder="Enter you category price">
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer pb-0">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Update</button>
+                                        </div>
+                                    </form>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal Update Delivery Price -->
+
+                    <!-- Modal delete Deliver Price -->
+                    <div class="modal fade" id="deletecate" data-bs-backdrop="static">
+                        <div class="modal-dialog  modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5">Delete Delivery</h1>
+                                    <button type="button" class="btn-close shadow-none border" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body px-4">
+                                    <form action="">
+                                        <h4 class="text-center">Are you sure you want to <span class="text-danger">delete</span> ?🤔</h4>
+                                        <div class="modal-footer pb-0">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                                            <button type="button" class="btn btn-danger">Yes</button>
+                                        </div>
+                                    </form>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal -->
+                </div>
+            </section>
+            <!-- Delivery Section -->
+
+
+            <!-- Category Section -->
+            <section class="p-4 border-top">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h2 class="m-0">Category Overviews</h2>
+                        <p>You can customize your own Category of your Product.</p>
+                    </div>
+
+                    <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#addtype">
+                        Add Category +
+                    </button>
+                </div>
+
+                <div>
+                    <table class="table">
+                        <thead class="table-dark">
+                            <tr>
+                                <td>#</td>
+                                <td>Type</td>
+                                <td class="text-center">Created at</td>
+                                <td class="text-center">Action</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="align-middle">
+                                <td>1</td>
+                                <td>Foam</td>
+                                <td class="text-center">
+                                    <span class="bg-secondary-subtle text-secondary rounded-3 fw-medium px-1">
+                                        Data was created : 2025-07-31
+                                    </span>
+                                </td>
+                                <td class="text-center">
+                                     <button title="Edit Data" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#uptype">
+                                        <i class="bi bi-pen-fill"></i>
+                                    </button>
+                                    <button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deletetype">
+                                        <i class="bi bi-trash3-fill"></i>
+                                    </button>
+                                </td>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- Modal Add Category -->
+                    <div class="modal fade" id="addtype" data-bs-backdrop="static">
+                        <div class="modal-dialog  modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5">Category Modal</h1>
+                                    <button type="button" class="btn-close shadow-none border" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body px-4">
+                                    <form action="">
+                                       
+                                        <label for="" class="fw-medium form-label">Type Product</label>
+                                        <input required class="form-control shadow-none border" type="text" name="type" id="type" placeholder="Enter Type of Product">
+            
+                                        <div class="modal-footer pb-0 mt-4">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
+                                    </form>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal Add Category Price -->
+                    
+                    <!-- Modal Update Category -->
+                    <div class="modal fade" id="uptype" data-bs-backdrop="static">
+                        <div class="modal-dialog  modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5">Category Modal</h1>
+                                    <button type="button" class="btn-close shadow-none border" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body px-4">
+                                    <form action="">
+                                       
+                                        <label for="" class="fw-medium form-label">Type Product</label>
+                                        <input required class="form-control shadow-none border" type="text" name="type" id="type" placeholder="Enter Type of Product">
+            
+                                        <div class="modal-footer pb-0 mt-4">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Update</button>
+                                        </div>
+                                    </form>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal Update Category Price -->
+
+                    <!-- Modal Delete Category -->
+                    <div class="modal fade" id="deletetype" data-bs-backdrop="static">
+                        <div class="modal-dialog  modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5">Delete Type</h1>
+                                    <button type="button" class="btn-close shadow-none border" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body px-4">
+                                    <form action="">
+                                        <h4 class="text-center">Are you sure you want to <span class="text-danger">delete</span> ?🤔</h4>
+                                        <div class="modal-footer pb-0">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                                            <button type="button" class="btn btn-danger">Yes</button>
+                                        </div>
+                                    </form>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal Delete Category -->
+                </div>
+            </section>
+            <!-- Category Section -->
+
+
+
+            <!-- Product Section -->
+            <section class="p-4 border-top">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h2 class="m-0">Product Overviews</h2>
+                        <p>You can create your own product for you business.</p>
+                    </div>
+
+                    <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#addpro">
+                        Add Product +
+                    </button>
+                </div>
+
+                <div>
+                    <table class="table">
+                        <thead class="table-dark">
+                            <tr>
+                                <td>#</td>
+                                <td>Image/Name</td> 
+                                <td>Price</td>
+                                <td>Stock</td>
+                                <td>Type</td>
+                                <td>User</td>
+                                <td>Created at</td>
+                                <td class="text-center">Action</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="align-middle">
+                                <td>1</td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <img src="" alt="" width="50px" height="50px" class="bg-danger">
+                                        <p class="m-0 ms-2 fw-medium">Item name</p>
+                                    </div>
+                                </td>
+                                <td class="text-danger">$4.00</td>
+                                <td class="text-primary">60</td>
+                                <td>Foam</td>
+                                <td class="text-success fw-bold">Tea K'pa</td> 
+                                <td>
+                                    <span class="bg-secondary-subtle text-secondary rounded-3 fw-medium px-1">
+                                        Data was created : 2025-07-31
+                                    </span>
+                                </td>
+                                <td class="text-center">
+                                     <button title="Edit Data" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#uppro">
+                                        <i class="bi bi-pen-fill"></i>
+                                    </button>
+                                    <button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deletepro">
+                                        <i class="bi bi-trash3-fill"></i>
+                                    </button>
+                                </td>
+
+                            </tr>
+                            <!-- <tr >
+                                <td colspan="8" class="text-center">
+                                    <span class="text-secondary">No item yet...</span>
+                                </td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+
+                    <!-- Modal Add Product -->
+                    <div class="modal fade" id="addpro" data-bs-backdrop="static">
+                        <div class="modal-dialog  modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5">Product Modal</h1>
+                                    <button type="button" class="btn-close shadow-none border" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body px-4">
+                                    <form action="">                
+                                        <div>
+                                            <div class="w-100 bg-secondary-subtle rounded-2 overflow-hidden" style="height: 230px;">
+                                                <img id="preview" src="../../app/assets/image/placeholder.png" alt="" class="w-100 h-100 object-fit-cover">
+                                            </div>
+                                            <input required type="file" name="image" id="image" class="form-control shadow-none border">
+                                        </div>
+
+                                        <div class="d-flex mt-4">
+                                            <div class="col-6 pe-2">
+                                                <label for="" class="fw-medium">Product Type*</label>
+                                                <input required type="text" name="proname" id="proname" class="form-control shadow-none border" placeholder="Product Name">
+                                            </div>
+                                            <div class="col-6 pe-2">
+                                                <label for="" class="fw-medium">Product Name*</label>
+                                                <select name="protype" id="protype" class="form-select shadow-none border">
+                                                    <option value="" disabled selected>Select Type</option>
+                                                    <option value="">Foam</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="d-flex mt-3">
+                                            <div class="col-6 pe-2">
+                                                <label for="" class="fw-medium">Product Stock*</label>
+                                                <input required type="number" min="0" name="prostock" id="prostock" class="form-control shadow-none border" placeholder="Product Stock">
+                                            </div>
+                                            <div class="col-6 pe-2">
+                                                <label for="" class="fw-medium">Product Price*</label>
+                                                <input required type="text" name="proprice" id="proprice" class="form-control shadow-none border" placeholder="Product Price">
+                                            </div>
+                                        </div>    
+
+                                        <div class="modal-footer pb-0 mt-4">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
+                                    </form>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal Add Product -->
+                    
+                     <!-- Modal Update Product -->
+                    <div class="modal fade" id="uppro" data-bs-backdrop="static">
+                        <div class="modal-dialog  modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5">Product Modal</h1>
+                                    <button type="button" class="btn-close shadow-none border" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body px-4">
+                                    <form action="">                
+                                        <div>
+                                            <div class="w-100 bg-secondary-subtle rounded-2 overflow-hidden" style="height: 230px;">
+                                                <img id="preview" src="../../app/assets/image/placeholder.png" alt="" class="w-100 h-100 object-fit-cover">
+                                            </div>
+                                            <input required type="file" name="image" id="image" class="form-control shadow-none border">
+                                        </div>
+
+                                        <div class="d-flex mt-4">
+                                            <div class="col-6 pe-2">
+                                                <label for="" class="fw-medium">Product Type*</label>
+                                                <input required type="text" name="proname" id="proname" class="form-control shadow-none border" placeholder="Product Name">
+                                            </div>
+                                            <div class="col-6 pe-2">
+                                                <label for="" class="fw-medium">Product Name*</label>
+                                                <select name="protype" id="protype" class="form-select shadow-none border">
+                                                    <option value="" disabled selected>Select Type</option>
+                                                    <option value="">Foam</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="d-flex mt-3">
+                                            <div class="col-6 pe-2">
+                                                <label for="" class="fw-medium">Product Stock*</label>
+                                                <input required type="number" min="0" name="prostock" id="prostock" class="form-control shadow-none border" placeholder="Product Stock">
+                                            </div>
+                                            <div class="col-6 pe-2">
+                                                <label for="" class="fw-medium">Product Price*</label>
+                                                <input required type="text" name="proprice" id="proprice" class="form-control shadow-none border" placeholder="Product Price">
+                                            </div>
+                                        </div>    
+
+                                        <div class="modal-footer pb-0 mt-4">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Update</button>
+                                        </div>
+                                    </form>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal Update Product -->
+                   
+
+                    <!-- Modal Delete produc -->
+                    <div class="modal fade" id="deletepro" data-bs-backdrop="static">
+                        <div class="modal-dialog  modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5">Delete Product</h1>
+                                    <button type="button" class="btn-close shadow-none border" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body px-4">
+                                    <form action="">
+                                        <h4 class="text-center">Are you sure you want to <span class="text-danger">delete</span> ?🤔</h4>
+                                        <div class="modal-footer pb-0">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                                            <button type="button" class="btn btn-danger">Yes</button>
+                                        </div>
+                                    </form>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal Delete produc -->
+
+                </div>
+            </section>
+            <!-- Product Section -->
+
+        </main>
+    </div>
+
+    <!-- Page not found -->
+    <div style="height: 100vh;" class="container d-flex justify-content-center align-items-center d-lg-none">
+        <div class="text-center">
+            <img src="../assets/image/gifnotfound.gif" alt="" class="rounded-4">
+            <h3 class="m-0 mt-2">KO MES BRO</h3>
+            <p>Berk Ler laptop tv Bro</p>
+        </div>
+    </div>
+    <!-- Page not found -->
+</body>
+<script src="../../app/assets/js/preview.js"></script>
+</html>
