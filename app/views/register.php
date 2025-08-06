@@ -1,19 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-
-    <!-- link css -->
-    <link rel="stylesheet" href="../assets/style/style.css">
-    <!-- link css -->
-
-    <!-- link bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
-    <!-- link bootstrap -->
+    <?php include 'app/views/includes/head.php' ?>
 </head>
 <style>
    input::placeholder{color: rgb(171, 169, 169) !important;}
@@ -44,14 +32,9 @@
         </div>
     </div>
 
+   
     <!-- Page not found -->
-    <div style="height: 100vh;" class="container d-flex justify-content-center align-items-center d-lg-none">
-        <div class="text-center">
-            <img src="../assets/image/gifnotfound.gif" alt="" class="rounded-4">
-            <h3 class="m-0 mt-2">KO MES BRO</h3>
-            <p>Berk Ler laptop tv Bro</p>
-        </div>
-    </div>
+    <?php include 'app/views/includes/notfound.php' ?>
     <!-- Page not found -->
 </body>
 </html>
