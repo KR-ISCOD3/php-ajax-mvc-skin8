@@ -36,22 +36,44 @@
         
         // for categorypage
         case 'categorypage':
-        
+            $cate = new CategoryController();
+            switch($func){
+                default:
+                    $cate->index();
+                break;
+            }
         break;
 
         // for customerpage
         case 'customerpage':
-        
+            $cus = new CustomerController();
+            switch($func){
+                default:
+                    $cus->index();
+                break;
+            }
+
         break;
 
         // for deliverypage
         case 'deliverypage':
+            $deliver = new DeliveryController();
+            switch($func){
+                default:
+                    $deliver->index();
+                break;
+            }
         
         break;
 
         // for productpage
         case 'productpage':
-            
+            $pro = new ProductController();
+            switch($func){
+                default:
+                    $pro->index();
+                break;
+            }
         break;
 
         default:

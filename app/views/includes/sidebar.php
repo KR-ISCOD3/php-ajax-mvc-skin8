@@ -11,31 +11,32 @@
 
     <!-- menu -->
     <ul class="list-unstyled">
-        <a href="" class="btn btn-outline-secondary text-light w-100 my-1">             
+
+        <a href="index.php?page=homepage" class="btn btn-outline-secondary text-light w-100 my-1">             
             <li class="d-flex justify-content-start fs-6 py-1 ">
                 <i class="bi bi-house-door-fill me-3"></i>
                 Home
             </li> 
         </a>
-        <a href="" class="btn btn-outline-secondary text-light w-100 my-1">             
+        <a href="index.php?page=customerpage" class="btn btn-outline-secondary text-light w-100 my-1">             
             <li class="d-flex justify-content-start fs-6 py-1 ">
                 <i class="bi bi-people-fill me-3"></i>
                 Customers
             </li> 
         </a>
-        <a href="" class="btn btn-outline-secondary text-light w-100 my-1">             
+        <a href="index.php?page=deliverypage" class="btn btn-outline-secondary text-light w-100 my-1">             
             <li class="d-flex justify-content-start fs-6 py-1">
                 <i class="bi bi-tag-fill me-3"></i>
                 Delivery Price
             </li> 
         </a>
-        <a href="" class="btn btn-outline-secondary text-light w-100 my-1">             
+        <a href="index.php?page=categorypage" class="btn btn-outline-secondary text-light w-100 my-1">             
             <li class="d-flex justify-content-start fs-6 py-1">
                 <i class="bi bi-hash me-3"></i>
                 Category
             </li> 
         </a>
-        <a href="" class="btn btn-outline-secondary text-light w-100  my-1">             
+        <a href="index.php?page=productpage" class="btn btn-outline-secondary text-light w-100  my-1">             
             <li class="d-flex justify-content-start fs-6 py-1">
                 <i class="bi bi-bag-fill me-3"></i>
                 Product
