@@ -1,26 +1,43 @@
 <?php
-
+    // session start
+    session_start(); // call session
+    
     // get page when click link website
     $page = $_GET['page'] ?? 'homepage';
-    
+
+    $publicPage = ['login','register'];
+
+    // return 0
+    // !0 = 1
+    if(!isset($_SESSION['user']) && !in_array($page,$publicPage)){
+        header('Location: index.php?page=login');
+        exit;
+    }
+        
     // call all controllers
-    require_once 'app/controllers/AuthController.php';
     require_once 'app/controllers/CategoryController.php';
     require_once 'app/controllers/CustomerController.php';
     require_once 'app/controllers/DeliveryController.php';
     require_once 'app/controllers/HomeController.php';
     require_once 'app/controllers/ProductController.php';
 
+    require_once 'app/controllers/LoginController.php';
+
     // check function
     $func = $_POST['func'] ?? null;
 
     switch($page){
 
-        // for login and regsiter 
-        case 'auth':
-        
+        case 'login':
+            $login = new LoginController();
+            switch($func){
+                default:
+                    $login->index();
+                break;
+            }
         break;
 
+    
         // for homepage
         case 'homepage':
             $home = new HomeController();

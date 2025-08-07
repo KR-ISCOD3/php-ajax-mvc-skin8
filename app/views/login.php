@@ -10,7 +10,7 @@
     <div class="container-fluid bg-dark d-none d-lg-flex align-items-center justify-content-center" style="height: 100vh;">
         <div class="col-4 rounded-3 shadow-lg px-5 py-3">
             <div class="text-center">
-                <img src="../../app/assets/image/logo.png" alt="" width="120px">
+                <img src="app/assets/image/logo.png" alt="" width="120px">
                 <h2 class="mb-0 text-light">SKIN8</h2>
                 <p class="text-light">leap ey leap tv</p>  
                 <h3 class="text-white">Login Form</h3>

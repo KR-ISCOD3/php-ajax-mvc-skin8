@@ -11,7 +11,7 @@
 
     <!-- menu -->
     <ul class="list-unstyled">
-
+        
         <a href="index.php?page=homepage" class="btn btn-outline-secondary text-light w-100 my-1">             
             <li class="d-flex justify-content-start fs-6 py-1 ">
                 <i class="bi bi-house-door-fill me-3"></i>
