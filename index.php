@@ -9,7 +9,7 @@
 
     // return 0
     // !0 = 1
-    if(!isset($_SESSION['user']) && !in_array($page,$publicPage)){
+    if(!isset($_SESSION['person']) && !in_array($page,$publicPage)){
         header('Location: index.php?page=login');
         exit;
     }
@@ -22,11 +22,22 @@
     require_once 'app/controllers/ProductController.php';
 
     require_once 'app/controllers/LoginController.php';
+    require_once 'app/controllers/RegisterController.php';
 
     // check function
     $func = $_POST['func'] ?? null;
 
     switch($page){
+
+        case 'register':
+            $reg = new RegisterController();
+            switch($func){
+                
+                default:
+                    $reg->index();
+                break;
+            }
+        break;
 
         case 'login':
             $login = new LoginController();

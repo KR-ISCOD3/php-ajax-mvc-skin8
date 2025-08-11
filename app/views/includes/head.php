@@ -1,7 +1,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SKIN8 | Dashboard</title>
-<link rel="shortcut icon" href="../../app/assets/image/logo.png" type="image/x-icon">
+<link rel="shortcut icon" href="app/assets/image/logo.png" type="image/x-icon">
 
 <!-- link css -->
 <link rel="stylesheet" href="app/assets/style/style.css">

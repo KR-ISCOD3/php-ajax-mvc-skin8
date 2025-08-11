@@ -25,7 +25,7 @@
                 <hr class="text-white">
                 <p class="text-white text-center">
                     Don't have account?
-                    <a href="./register.html">Register</a>
+                    <a href="index.php?page=register">Register</a>
                 </p>
             </form>
         </div>
