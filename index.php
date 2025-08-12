@@ -32,7 +32,9 @@
         case 'register':
             $reg = new RegisterController();
             switch($func){
-                
+                case 'regis':
+                    $reg->register();
+                break;
                 default:
                     $reg->index();
                 break;

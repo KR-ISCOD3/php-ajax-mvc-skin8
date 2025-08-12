@@ -14,7 +14,7 @@
         public function register(){
             
             // start start
-            session_start();
+            // session_start();
 
             // get value from frontend form by method post
             $name = $_POST['name'] ?? '';
@@ -23,17 +23,17 @@
 
             // check if empty
             if(empty($name) || empty($email) || empty($pass)){
-                echo json_encode([
-                    'success'=>false,
-                    'message'=>"Please fill all the fields."
-                ]);
+                echo 'Please fill all the fields.';
             }
+
+            // hash password
+            $hashPass = password_hash($pass,PASSWORD_DEFAULT);
 
             // create object for calling function in model
             $registermodel = new Register();
 
              // calling function create in model
-            $rs = $registermodel->create($name,$email,$pass);
+            $rs = $registermodel->create($name,$email,$hashPass);
 
             // check if success send name and email back
             if($rs){
@@ -41,11 +41,12 @@
                     'username' => $name,
                     'email' => $email,
                 ];
-                echo json_encode(["success"=>true]);
+                echo 'success';
+                exit;
             }
             // if not message error
             else{
-                echo json_encode(["success"=>false]); 
+                echo 'Create account fail'; 
             }
             
         }

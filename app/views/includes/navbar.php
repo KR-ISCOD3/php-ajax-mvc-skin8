@@ -5,6 +5,6 @@
         class="rounded-circle bg-secondary me-2 overflow-hidden border border-dark border-2">
             <img src="app/assets/image/teakpa.png" alt="" class="w-100 h-100 object-fit-cover">
         </div>
-        <h6 class="m-0">Mr.TeaK'pa</h6>
+        <h6 class="m-0">Mr.<?= $_SESSION['person']['username'] ?></h6>
     </div>
 </header>

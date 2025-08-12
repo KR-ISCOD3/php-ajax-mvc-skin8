@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php include 'app/views/includes/head.php' ?>
+    <?php 
+        include 'app/views/includes/head.php';
+        
+        // if($_SESSION['person']){
+        //     header('Location: index.php?page=homepage');
+        // }
+    ?>
 </head>
 <style>
    input::placeholder{color: rgb(171, 169, 169) !important;}
@@ -53,12 +59,18 @@
             console.log(name,email,pass);
 
             $.ajax({
-                url:'',
-                method:'',
-                data:{},
-                dataType:'',
+                url:'index.php?page=register',
+                method:'POST',
+                data:{
+                    func:'regis',
+                    name:name,
+                    email:email,
+                    pass:pass
+                },
                 success: function(res){
-                    // message success
+                    if(res){
+                       window.location.href = 'index.php?page=homepage';
+                    }
                 },
                 error: function(){
                     // message error
