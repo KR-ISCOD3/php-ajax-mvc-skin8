@@ -18,10 +18,13 @@
             // preparing query for insert in to database
             $stmt = $this->conn->prepare('INSERT INTO `users`(`name`, `email`, `pass`) VALUES (?,?,?)');
             $stmt->bind_param("sss",$name,$email,$pass);
-            $rs = $stmt->execute();
+            
+            if($stmt->execute()){
+                return $this->conn->insert_id;
+            }else{
+                return false;
+            }
 
-            // return back if success or error
-            return $rs;
         }   
 
     }

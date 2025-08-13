@@ -2,11 +2,14 @@
 <html lang="en">
 <head>
     <?php 
-        include 'app/views/includes/head.php';
-        
-        // if($_SESSION['person']){
+
+
+        // if(isset($_SESSION['person'])){
         //     header('Location: index.php?page=homepage');
         // }
+
+        include 'app/views/includes/head.php';
+        
     ?>
 </head>
 <style>
@@ -45,42 +48,5 @@
     <?php include 'app/views/includes/notfound.php' ?>
     <!-- Page not found -->
 </body>
-<script>
-    $(document).ready(function(){
-
-        $('#registerForm').on('submit',function(e){
-
-            e.preventDefault(); // prevent page reload
-
-            let name =  $('#name').val();
-            let email =  $('#email').val();
-            let pass =  $('#password').val();
-
-            console.log(name,email,pass);
-
-            $.ajax({
-                url:'index.php?page=register',
-                method:'POST',
-                data:{
-                    func:'regis',
-                    name:name,
-                    email:email,
-                    pass:pass
-                },
-                success: function(res){
-                    if(res){
-                       window.location.href = 'index.php?page=homepage';
-                    }
-                },
-                error: function(){
-                    // message error
-                }
-            })
-
-            $('#name').val('');
-            $('#email').val('');
-            $('#password').val('');           
-        })
-    })
-</script>
+<script src="app/assets/js/register.js"></script>
 </html>

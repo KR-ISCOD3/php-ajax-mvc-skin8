@@ -33,11 +33,12 @@
             $registermodel = new Register();
 
              // calling function create in model
-            $rs = $registermodel->create($name,$email,$hashPass);
+            $id = $registermodel->create($name,$email,$hashPass);
 
             // check if success send name and email back
-            if($rs){
+            if($id){
                 $_SESSION['person'] = [
+                    'user_id' => $id,
                     'username' => $name,
                     'email' => $email,
                 ];

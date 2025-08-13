@@ -27,5 +27,5 @@
     <?php include 'app/views/includes/notfound.php' ?>
 
 </body>
-<script src="../../app/assets/js/preview.js"></script>
+<script src="app/assets/js/preview.js"></script>
 </html>

@@ -47,10 +47,53 @@
 
     <!-- btn-logout -->
     <div class="position-absolute bottom-0 w-100 start-0 p-3">
-        <button class="btn btn-danger w-100 fw-medium">
+        <button data-bs-toggle="modal" data-bs-target="#logoutmodal" class="btn btn-danger w-100 fw-medium">
             <i class="bi bi-box-arrow-left"></i>
             Logout
         </button>
     </div>
     <!-- btn-logout -->
 </aside>
+
+<div class="modal fade" id="logoutmodal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Logout form</h3>
+                <button class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form  id="formLogout">
+                    <h4 class="text-center">Are you sure you want to logout? 🤔</h4>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">No</button>
+                        <button data-bs-toggle="modal" data-bs-target="#logoutmodal" class="btn btn-danger">
+                            Yes
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>  
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $('#formLogout').on('submit',function(e){
+            e.preventDefault();
+
+            $.ajax({
+                url: 'index.php?page=homepage',
+                method: 'POST',
+                data:{
+                    func:'logout'
+                },
+                success: function(response){
+                    if(response){
+                        window.location.href = 'index.php'
+                    }
+                }
+            })
+        })
+    })
+</script>

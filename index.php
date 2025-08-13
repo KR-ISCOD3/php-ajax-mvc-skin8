@@ -55,7 +55,9 @@
         case 'homepage':
             $home = new HomeController();
             switch($func){
-
+                case 'logout':
+                    $home->logout();
+                break;
                 // default page to index function in HomeController
                 default:
                     $home->index();
