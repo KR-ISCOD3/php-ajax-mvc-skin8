@@ -25,7 +25,7 @@
             if(empty($name) || empty($email) || empty($pass)){
                 echo 'Please fill all the fields.';
             }
-
+ 
             // hash password
             $hashPass = password_hash($pass,PASSWORD_DEFAULT);
 
