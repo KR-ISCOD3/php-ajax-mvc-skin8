@@ -19,12 +19,22 @@ $(document).ready(function(){
                 pass:pass
             },
             success: function(res){
-                if(res){
+                res = res.trim();
+                // Clear previous alerts
+                $('#alertPlaceholder').html('');
+
+                if(res=='success'){
                     window.location.href = 'index.php?page=homepage';
+                }else{
+                    // Insert Bootstrap alert
+                    let alertHtml = `
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            ${res}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>`;
+                    $('#alertPlaceholder').html(alertHtml);
+                    
                 }
-            },
-            error: function(){
-                // message error
             }
         })
 

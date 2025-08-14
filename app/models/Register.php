@@ -15,14 +15,20 @@
 
         // function for create account user
         public function create($name,$email,$pass){
-            // preparing query for insert in to database
-            $stmt = $this->conn->prepare('INSERT INTO `users`(`name`, `email`, `pass`) VALUES (?,?,?)');
-            $stmt->bind_param("sss",$name,$email,$pass);
-            
-            if($stmt->execute()){
+            try {
+                $stmt = $this->conn->prepare('INSERT INTO `users`(`name`, `email`, `pass`) VALUES (?,?,?)');
+                $stmt->bind_param("sss", $name, $email, $pass);
+
+                $stmt->execute();
                 return $this->conn->insert_id;
-            }else{
-                return false;
+
+            } catch (mysqli_sql_exception $e) {
+                // Check if duplicate entry
+                if($e->getCode() == 1062){
+                    return "This email is already registered.";
+                } else {
+                    return "Database error: " . $e->getMessage();
+                }
             }
 
         }   

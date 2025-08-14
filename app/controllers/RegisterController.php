@@ -33,22 +33,23 @@
             $registermodel = new Register();
 
              // calling function create in model
-            $id = $registermodel->create($name,$email,$hashPass);
+            $result = $registermodel->create($name,$email,$hashPass);
 
             // check if success send name and email back
-            if($id){
+            if(is_numeric($result)){
                 $_SESSION['person'] = [
-                    'user_id' => $id,
+                    'user_id' => $result,
                     'username' => $name,
                     'email' => $email,
                 ];
                 echo 'success';
-                exit;
             }
             // if not message error
             else{
-                echo 'Create account fail'; 
+                echo $result; 
             }
+            
+            exit;
             
         }
     }

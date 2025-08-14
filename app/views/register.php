@@ -26,7 +26,7 @@
                 <h3 class="text-white">Register Form</h3>
             </div>
             <form id="registerForm">
-                
+                <div id="alertPlaceholder"></div>
                 <input required type="text" name="name" id="name" class="form-control shadow-none my-3 bg-transparent border text-white" placeholder="Username">
                 <input required type="email" name="email" id="email" class="form-control shadow-none my-3 bg-transparent border text-white" placeholder="Email">
                 <input required type="password" name="password" id="password" class="form-control shadow-none my-3 bg-transparent border text-white" placeholder="Password">
