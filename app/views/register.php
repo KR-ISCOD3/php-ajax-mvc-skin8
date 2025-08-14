@@ -26,9 +26,16 @@
                 <h3 class="text-white">Register Form</h3>
             </div>
             <form id="registerForm">
+
                 <div id="alertPlaceholder"></div>
+
                 <input required type="text" name="name" id="name" class="form-control shadow-none my-3 bg-transparent border text-white" placeholder="Username">
                 <input required type="email" name="email" id="email" class="form-control shadow-none my-3 bg-transparent border text-white" placeholder="Email">
+                
+                <div class="invalid-feedback" id="emailFeedback">
+                    <!-- Error message will go here -->
+                </div>
+
                 <input required type="password" name="password" id="password" class="form-control shadow-none my-3 bg-transparent border text-white" placeholder="Password">
 
                 <button class="btn btn-primary w-100">
@@ -43,10 +50,55 @@
         </div>
     </div>
 
-   
     <!-- Page not found -->
     <?php include 'app/views/includes/notfound.php' ?>
     <!-- Page not found -->
 </body>
-<script src="app/assets/js/register.js"></script>
 </html>
+<script>   
+    $(document).ready(function(){
+        $('#registerForm').on('submit',function(e){
+
+            e.preventDefault(); // prevent page reload
+
+            let name =  $('#name').val();
+            let email =  $('#email').val();
+            let pass =  $('#password').val();
+
+            console.log(name,email,pass);
+
+            $.ajax({
+                url:'index.php?page=register',
+                method:'POST',
+                data:{
+                    func:'regis',
+                    name:name,
+                    email:email,
+                    pass:pass
+                },
+                success: function(res){
+                    res = res.trim();
+                    // Clear previous alerts
+                    $('#alertPlaceholder').html('');
+
+                    if(res == 'success'){
+                        window.location.href = 'index.php?page=homepage';
+                    }else{
+                        // If email is already registered
+                        if(res.includes("already registered")){
+                            $('#email').addClass('is-invalid border-danger'); // add red border
+                            $('#emailFeedback').text(res); // show error message
+                            // $('#email').focus();
+                        } else {
+                            alert(res); // other errors
+                        }
+                    }
+                }
+            })
+
+            $('#name').val('');
+            $('#email').val('');
+            $('#password').val('');           
+        })
+    })
+</script>
