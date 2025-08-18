@@ -3,10 +3,9 @@
 <head>
     <?php 
 
-
-        // if(isset($_SESSION['person'])){
-        //     header('Location: index.php?page=homepage');
-        // }
+        if(isset($_SESSION['person'])){
+            header('Location: index.php?page=homepage');
+        }
 
         include 'app/views/includes/head.php';
         
@@ -32,7 +31,7 @@
                 <input required type="text" name="name" id="name" class="form-control shadow-none my-3 bg-transparent border text-white" placeholder="Username">
                 <input required type="email" name="email" id="email" class="form-control shadow-none my-3 bg-transparent border text-white" placeholder="Email">
                 
-                <div class="invalid-feedback" id="emailFeedback">
+                <div class="invalid-feedback my-0" id="emailFeedback">
                     <!-- Error message will go here -->
                 </div>
 

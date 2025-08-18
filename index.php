@@ -44,6 +44,9 @@
         case 'login':
             $login = new LoginController();
             switch($func){
+                case 'loginUser':
+                    $login->login();
+                break;
                 default:
                     $login->index();
                 break;
