@@ -6,7 +6,7 @@
             header('Location: index.php?page=homepage');
         }
         include 'app/views/includes/head.php'
-     ?>
+    ?>
 </head>
 <style>
     input::placeholder{color: rgb(171, 169, 169) !important;}
@@ -21,6 +21,7 @@
                 <h3 class="text-white">Login Form</h3>
             </div>
             <form action="" id="loginForm">
+                <div id="alertPlaceholder"></div>
                 <input required type="text" name="nameoremail" id="nameoremail" class="form-control shadow-none my-3 bg-transparent border text-white" placeholder="Username Or Email">
                 <input required type="password" name="password" id="password" class="form-control shadow-none my-3 bg-transparent border text-white" placeholder="Password">
 
@@ -40,6 +41,7 @@
     <?php include 'app/views/includes/notfound.php' ?>
     <!-- Page not found -->
 </body>
+</html>
 <script>
     $(document).ready(function(){
         $('#loginForm').on('submit',function(e){
@@ -60,8 +62,20 @@
                     password:password
                 },
                 success: function(res){
-                    if(res){
-                        window.location.href = 'index.php'
+                    res = res.trim();
+                    // Clear previous alerts
+                    $('#alertPlaceholder').html('');
+
+                    if(res == 'success'){
+                        window.location.href = 'index.php?page=homepage';
+                    }else{
+                        let alertHtml = `
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            ${res}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                            `;
+                            $("#alertPlaceholder").html(alertHtml);
                     }
                 }
             })
@@ -69,4 +83,3 @@
         })
     })
 </script>
-</html>

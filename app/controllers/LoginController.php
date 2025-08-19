@@ -16,14 +16,16 @@
             $user = $loginModel->login($nameoremail,$pass);
 
             if($user){
+
                  $_SESSION['person'] = [
                     'user_id' => $user['id'],
                     'username' => $user['name'],
                     'email' => $user['email'],
                 ];
-                echo 'Login success';
+
+                echo 'success';
             }else{
-                echo 'Login failed';
+                echo 'Maybe khos password, name or email';
             }
             exit;
         }

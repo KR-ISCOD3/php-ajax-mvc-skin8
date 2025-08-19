@@ -73,6 +73,11 @@
         case 'categorypage':
             $cate = new CategoryController();
             switch($func){
+                // call function create from controller
+                case 'create':
+                    $cate->create();
+                break;
+
                 default:
                     $cate->index();
                 break;

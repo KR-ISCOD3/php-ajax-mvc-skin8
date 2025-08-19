@@ -22,8 +22,9 @@
                 $stmt->execute();
 
                 $rs = $stmt->get_result(); // 0
-                if($rs->num_rows===0){
-                    return "Usernam or Email is invalid";
+
+                if($rs->num_rows === 0){
+                     return false;
                 }
 
                 $user = $rs->fetch_assoc();
@@ -31,7 +32,7 @@
                 if(password_verify($password,$user['pass'])){
                     return $user;
                 }else{
-                    return 'Password is invalid ';
+                     return false;
                 }
 
             } catch (mysqli_sql_exception $e) {
