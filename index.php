@@ -78,6 +78,10 @@
                     $cate->create();
                 break;
 
+                case 'read':
+                    $cate->fetcData();
+                break;
+
                 default:
                     $cate->index();
                 break;
