@@ -49,7 +49,7 @@
                     echo <<<HTML
                            
                         <tr class="align-middle">
-                            <td>$count</td>
+                            <td>$id</td>
                             <td>$type</td>
                             <td>
                                 Add by: <span class="text-success fw-bold">$username</span>
@@ -60,10 +60,20 @@
                                 </span>
                             </td>
                             <td class="text-center">
-                                    <button title="Edit Data" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#uptype">
+                                    <button 
+                                        title="Edit Data" 
+
+                                        class="btn btn-outline-dark btn-edit" 
+
+                                        data-id="$id"
+                                        data-type="$type"
+
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#uptype"
+                                    >
                                     <i class="bi bi-pen-fill"></i>
                                 </button>
-                                <button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deletetype">
+                                <button data-id="$id" class="btn-delete btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deletetype">
                                     <i class="bi bi-trash3-fill"></i>
                                 </button>
                             </td>
@@ -74,6 +84,20 @@
                 }
             }else{
 
+            }
+        }
+
+        public function destroy(){
+            $id = $_POST['id'] ?? "";
+
+            // echo "Controller can get id: ".$id;      
+            $categoryModel = new Category();
+
+            $rs = $categoryModel->delete($id);
+            if($rs){
+                echo "success";
+            }else{
+                echo "Fail to Create Data";
             }
         }
     }

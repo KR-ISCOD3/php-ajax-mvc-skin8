@@ -74,8 +74,10 @@
             <div class="modal-body px-4">
                 <form action="">
                     
+                    <input type="text" name="up_id" id="up_id">
+
                     <label for="" class="fw-medium form-label">Type Product</label>
-                    <input required class="form-control shadow-none border" type="text" name="type" id="type" placeholder="Enter Type of Product">
+                    <input required class="form-control shadow-none border" type="text" name="up_type" id="up_type" placeholder="Enter Type of Product">
 
                     <div class="modal-footer pb-0 mt-4">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -97,11 +99,12 @@
                 <button type="button" class="btn-close shadow-none border" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body px-4">
-                <form action="">
+                <form id="delCate">
+                    <input type="hidden" id="del_id" name="del_id" >
                     <h4 class="text-center">Are you sure you want to <span class="text-danger">delete</span> ?🤔</h4>
                     <div class="modal-footer pb-0">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                        <button type="button" class="btn btn-danger">Yes</button>
+                        <button type="submit" class="btn btn-danger">Yes</button>
                     </div>
                 </form>
             </div> 
@@ -111,9 +114,11 @@
 <!-- Modal Delete Category -->
 
 <!-- Category Section -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     $(document).ready(function(){
 
+        // read feature
         function fetchAllData(){
 
             $.ajax({
@@ -129,10 +134,12 @@
                 }
             })
         }
-
         fetchAllData();
+        // read feature
 
 
+
+        // create feature
         $('#addCate').on('submit',function(e){
 
             e.preventDefault();
@@ -153,6 +160,14 @@
                     res = res.trim();
                     if(res == "success"){
                         console.log("Create Success");
+                        Swal.fire({
+                            title: "Good job!",
+                            text: "You clicked the button!",
+                            icon: "success",
+                            timer: 1300,
+                            showCloseButton: true,   // display the X button
+                            showConfirmButton: false // hide the OK button
+                        });
                         fetchAllData();
                     }else{
                         alert(res);
@@ -162,5 +177,69 @@
             
             $('#type').val('');     
         })
+        // create feature
+
+        // delete feature
+        // only get id to modal form
+        $(document).on('click','.btn-delete',function(e){
+            // alert(123);
+            let id = $(this).data("id");
+            // alert(id)
+            $('#del_id').val(id)
+
+        })
+
+        // if form said yes send data to controller
+        $('#delCate').on("submit",function(e){
+            e.preventDefault();
+            let id = $('#del_id').val();
+
+            $.ajax({
+                url:'index.php?page=categorypage',
+                method:'post',
+                data:{
+                    func:'delete',
+                    id:id
+                },
+                success: (res)=>{
+                    $("#deletetype").modal('hide');
+                    res = res.trim();
+                    if(res == "success"){
+                        console.log("Create Success");
+                        Swal.fire({
+                            title: "Your data is deleted",
+                            text: "You clicked the button!",
+                            icon: "success",
+                            timer: 1300,
+                            showCloseButton: true,   // display the X button
+                            showConfirmButton: false // hide the OK button
+                        });
+                        fetchAllData();
+                    }else{
+                        alert(res);
+                    }
+                }
+            })
+        })
+        // delete feature
+
+
+        // update feature
+        // only get id to modal form
+        $(document).on('click','.btn-edit',function(e){
+            // alert(123);
+            let id = $(this).data("id");
+            let type = $(this).data("type");
+
+            // alert(id)
+            // alert(type)
+            $('#up_id').val(id)
+            $('#up_type').val(type)
+
+        })
+
+
+        
+        // update feature
     })
 </script>

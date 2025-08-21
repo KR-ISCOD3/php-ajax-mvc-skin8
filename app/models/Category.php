@@ -77,8 +77,17 @@
             
         }
 
-        public function delete(){
-            
+        public function delete($id){
+            try{
+                $stmt = $this->conn->prepare("DELETE FROM types WHERE id = ?");
+                $stmt->bind_param("i",$id);
+                $rs = $stmt->execute();
+
+                return $rs;
+
+            }catch(mysqli_sql_exception $e){
+                echo 'Database: '.$e;
+            }
         }
 
     }

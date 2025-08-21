@@ -82,6 +82,10 @@
                     $cate->fetcData();
                 break;
 
+                case 'delete':
+                    $cate->destroy();
+                break;
+
                 default:
                     $cate->index();
                 break;
