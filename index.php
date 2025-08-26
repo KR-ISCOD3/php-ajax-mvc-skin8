@@ -81,7 +81,11 @@
                 case 'read':
                     $cate->fetcData();
                 break;
-
+                
+                case 'update':
+                    $cate->update();
+                break;
+                
                 case 'delete':
                     $cate->destroy();
                 break;
@@ -107,6 +111,22 @@
         case 'deliverypage':
             $deliver = new DeliveryController();
             switch($func){
+                case 'create':
+                    $deliver->create();
+                break;
+
+                case 'fetchData':
+                    $deliver->fetcData();
+                break;
+
+                case 'update':
+                    $deliver->update();
+                break;
+
+                case 'delete':
+                    $deliver->destroy();
+                break;  
+
                 default:
                     $deliver->index();
                 break;
@@ -121,7 +141,7 @@
                 default:
                     $pro->index();
                 break;
-            }
+            } 
         break;
 
         default:

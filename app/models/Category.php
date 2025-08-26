@@ -6,8 +6,7 @@
 
         private $conn;
 
-        public function __construct()
-        {
+        public function __construct(){
             $this->conn = Database::connection();
         }
 
@@ -73,8 +72,22 @@
             
         }
 
-        public function update(){
-            
+        public function update($id, $type) {
+            try {
+                // Prepare the SQL query to update the 'type' column for a specific id
+                $stmt = $this->conn->prepare("UPDATE types SET type = ? WHERE id = ?");
+                $stmt->bind_param("si", $type, $id); // "s" for string, "i" for integer
+
+                // Execute the query
+                $rs = $stmt->execute();
+
+                // Return true if update was successful, false otherwise
+                return $rs;
+
+            } catch(mysqli_sql_exception $e) {
+                echo 'Database: '.$e->getMessage();
+                return false;
+            }
         }
 
         public function delete($id){

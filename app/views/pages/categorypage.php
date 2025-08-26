@@ -72,9 +72,9 @@
                 <button type="button" class="btn-close shadow-none border" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body px-4">
-                <form action="">
+                <form id="updateForm">
                     
-                    <input type="text" name="up_id" id="up_id">
+                    <input type="hidden" name="up_id" id="up_id">
 
                     <label for="" class="fw-medium form-label">Type Product</label>
                     <input required class="form-control shadow-none border" type="text" name="up_type" id="up_type" placeholder="Enter Type of Product">
@@ -136,8 +136,6 @@
         }
         fetchAllData();
         // read feature
-
-
 
         // create feature
         $('#addCate').on('submit',function(e){
@@ -223,7 +221,6 @@
         })
         // delete feature
 
-
         // update feature
         // only get id to modal form
         $(document).on('click','.btn-edit',function(e){
@@ -239,7 +236,37 @@
         })
 
 
-        
-        // update feature
-    })
+        $('#updateForm').on("submit", function(e){
+            e.preventDefault();
+
+            let up_id = $('#up_id').val();
+            let up_type = $('#up_type').val();
+
+            $.ajax({
+                url: 'index.php?page=categorypage',
+                method: 'post',
+                data: {
+                    func: 'update', // specify update function
+                    id: up_id,
+                    type: up_type
+                },
+                success: function(res){
+                    $("#uptype").modal('hide');
+                    res = res.trim();
+
+                    if(res == "success"){
+                        Swal.fire({
+                            title: "Updated successfully!",
+                            icon: "success",
+                            timer: 1300,
+                        });
+                        fetchAllData(); // refresh the table
+                    } else {
+                        alert(res);
+                    }
+                }
+            });
+        });
+
+})
 </script>

@@ -1,4 +1,5 @@
 <!-- Delivery Section -->
+<input type="hidden" id="userid" value="<?= $_SESSION['person']['user_id'] ?>"> 
 <section class="p-4 border-top">
     <div class="d-flex justify-content-between align-items-center">
         <div>
@@ -23,7 +24,7 @@
                     <td class="text-center">Action</td>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="tb">
                 <tr class="align-middle">
                     <td>1</td>
                     <td>City</td>
@@ -59,7 +60,7 @@
                 <button type="button" class="btn-close shadow-none border" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body px-4">
-                <form action="">
+                <form id="addDeliveryform">
                     <div class="d-flex mb-2">
                         <div class="col-6 pe-2">
                             <label for="" class="fw-medium form-label">Delivery Type*</label>
@@ -113,7 +114,7 @@
 <!-- Modal Update Delivery Price -->
 
 <!-- Modal delete Deliver Price -->
-<div class="modal fade" id="deletecate" data-bs-backdrop="static">
+<div class="modal fade" id="deleteDeliveryModal" data-bs-backdrop="static">
     <div class="modal-dialog  modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -122,6 +123,7 @@
             </div>
             <div class="modal-body px-4">
                 <form action="">
+                    <input type="text" name="" id="del_id">
                     <h4 class="text-center">Are you sure you want to <span class="text-danger">delete</span> ?🤔</h4>
                     <div class="modal-footer pb-0">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
@@ -133,5 +135,68 @@
     </div>
 </div>
 <!-- Modal -->
- 
+
 <!-- Delivery Section -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    $(document).ready(function(){
+
+        function fetchData(){
+            $.ajax({
+                url:'index.php?page=deliverypage',
+                method:"post",
+                data:{
+                    func:'fetchData',
+                    userid: $('#userid').val(),
+                },
+                success:function(echo){
+                    $('#tb').html(echo)
+                }
+            })
+        }
+
+        fetchData();
+
+
+        $('#addDeliveryform').on('submit',function(e){
+            e.preventDefault();
+            // console.log($('#category').val(),$('#price').val(),$('#userid').val());
+            $.ajax({
+                url:'index.php?page=deliverypage',
+                method:'post',
+                data:{
+                    func:"create",
+                    userid:$('#userid').val(),
+                    category:$('#category').val(),
+                    delivery_price: $('#price').val()
+                },
+                success:function(res){
+                    $('#addcate').modal('hide');
+                    res = res.trim();
+                    if(res == "success"){
+                        console.log("Create Success");
+                        Swal.fire({
+                            title: "Good job!",
+                            text: "You clicked the button!",
+                            icon: "success",
+                            timer: 1300,
+                            showCloseButton: true,   // display the X button
+                            showConfirmButton: false // hide the OK button
+                        });
+                        fetchData();
+                        $('#category').val('')
+                        $('#price').val('')
+                    }else{
+                        alert(res);
+                    }
+                }
+            })
+        })
+
+        $(document).on('click','.btn-delete-delivery',function(e){
+            // alert($(this).data('id'))
+            $('#del_id').val($(this).data('id'))
+        })
+
+    }) 
+</script>

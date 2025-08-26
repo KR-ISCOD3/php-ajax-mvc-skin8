@@ -49,7 +49,7 @@
                     echo <<<HTML
                            
                         <tr class="align-middle">
-                            <td>$id</td>
+                            <td>$count</td>
                             <td>$type</td>
                             <td>
                                 Add by: <span class="text-success fw-bold">$username</span>
@@ -83,7 +83,13 @@
                     HTML;
                 }
             }else{
-
+                echo <<<HTML
+                    <tr >
+                        <td colspan="5">
+                            <p class="text-center m-0 text-secondary">Data is empty</p>
+                        </td>
+                    </tr>
+                HTML;
             }
         }
 
@@ -98,6 +104,26 @@
                 echo "success";
             }else{
                 echo "Fail to Create Data";
+            }
+        }
+
+        public function update(){
+
+            $id = $_POST['id'] ?? "";
+            $type = $_POST['type'] ?? "";
+
+            if(empty($id) || empty($type)){
+                echo "Form is empty, please input";
+                return;
+            }
+
+            $categoryModel = new Category();
+
+            $rs = $categoryModel->update($id, $type);
+            if($rs){
+                echo "success";
+            } else {
+                echo "Fail to Update Data";
             }
         }
     }
