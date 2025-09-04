@@ -49,6 +49,8 @@
         <!-- table-data -->
        
     </div>
+
+  
 </section>
 
 <!-- Modal Add Delivery Price -->
@@ -83,7 +85,7 @@
     <!-- Modal Add Delivery Price -->
     
 <!-- Modal Update Delivery Price -->
-<div class="modal fade" id="updatecate" data-bs-backdrop="static">
+<div class="modal fade" id="updateDeliveryModal" data-bs-backdrop="static">
     <div class="modal-dialog  modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -91,15 +93,16 @@
                 <button type="button" class="btn-close shadow-none border" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body px-4">
-                <form action="">
+                <form id="deliveryUpForm">
+                    <input type="hidden" name="" id="upid">
                     <div class="d-flex mb-2">
                         <div class="col-6 pe-2">
                             <label for="" class="fw-medium form-label">Delivery Type*</label>
-                            <input required class="form-control shadow-none border" type="text" name="category" id="category" placeholder="Enter type of delievery">
+                            <input required class="form-control shadow-none border" type="text" name="category" id="upcategory" placeholder="Enter type of delievery">
                         </div>
                         <div class="col-6">
                             <label for="" class="fw-medium form-label">Delivery Price*</label>
-                            <input required class="form-control shadow-none border" type="text" name="price" id="price" placeholder="Enter you category price">
+                            <input required class="form-control shadow-none border" type="text" name="price" id="upprice" placeholder="Enter you category price">
                         </div>
                     </div>
                     <div class="modal-footer pb-0">
@@ -122,12 +125,12 @@
                 <button type="button" class="btn-close shadow-none border" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body px-4">
-                <form action="">
-                    <input type="text" name="" id="del_id">
+                <form id="formDelete">
+                    <input type="hidden" name="" id="del_id">
                     <h4 class="text-center">Are you sure you want to <span class="text-danger">delete</span> ?🤔</h4>
                     <div class="modal-footer pb-0">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                        <button type="button" class="btn btn-danger">Yes</button>
+                        <button type="submit" class="btn btn-danger">Yes</button>
                     </div>
                 </form>
             </div> 
@@ -156,8 +159,7 @@
         }
 
         fetchData();
-
-
+        
         $('#addDeliveryform').on('submit',function(e){
             e.preventDefault();
             // console.log($('#category').val(),$('#price').val(),$('#userid').val());
@@ -198,5 +200,95 @@
             $('#del_id').val($(this).data('id'))
         })
 
+        $('#formDelete').on('submit',function(e){
+
+            e.preventDefault();
+            
+            $.ajax({
+                url:'index.php?page=deliverypage',
+                method:'post',
+                data:{
+                    func:"delete",
+                    id:$("#del_id").val()
+                },
+                success:function(res){
+                    $('#deleteDeliveryModal').modal('hide');
+                    res = res.trim();
+                    if(res == "success"){
+                        console.log("Create Success");
+                        Swal.fire({
+                            title: "Delete Success!",
+                            text: "You clicked the button!",
+                            icon: "success",
+                            timer: 1300,
+                            showCloseButton: true,   // display the X button
+                            showConfirmButton: false // hide the OK button
+                        });
+                        fetchData();
+                    }else{
+                        alert(res);
+                    }
+                }
+            })
+        })
+
+        $(document).on('click','.btn-edit',function(e){
+            // alert($(this).data('id'))
+
+            // console.log(
+            //     $(this).data('id'),
+            //     $(this).data('category'),
+            //     $(this).data('price')
+            // );
+            
+            $('#upid').val($(this).data('id'))
+            $('#upcategory').val($(this).data('category'))
+            $('#upprice').val($(this).data('price'))
+        })
+
+        $("#deliveryUpForm").on("submit",function(e){
+            e.preventDefault();
+           
+            // console.log(
+            //     $('#upid').val(),
+            //     $('#upcategory').val(),
+            //     $('#upprice').val()
+            // );
+
+            $.ajax({
+                url:'index.php?page=deliverypage',
+                method:'post',
+                data:{
+                    func:'update',
+                    id:$('#upid').val(),
+                    category:$('#upcategory').val(),
+                    delivery_price:$('#upprice').val()
+                },
+                success: function(res){
+                    $('#updateDeliveryModal').modal('hide');
+                    res = res.trim();
+                    if(res == "success"){
+                        console.log("Create Success");
+                        Swal.fire({
+                            title: "Update Success",
+                            text: "You clicked the button!",
+                            icon: "success",
+                            timer: 1300,
+                            showCloseButton: true,   // display the X button
+                            showConfirmButton: false // hide the OK button
+                        });
+                        fetchData();
+                        $('#category').val('')
+                        $('#price').val('')
+                    }else{
+                        alert(res);
+                    }
+                }
+            })
+
+            $('#upcategory').val(''),
+            $('#upprice').val('')
+            
+        })
     }) 
 </script>

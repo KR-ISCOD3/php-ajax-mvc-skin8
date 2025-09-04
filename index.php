@@ -138,6 +138,26 @@
         case 'productpage':
             $pro = new ProductController();
             switch($func){
+                case 'create':
+                    $pro->create();
+                break;
+                // call function getCateOptions in Productcontroller
+                case 'getType':
+                    $pro->getCateOptions();
+                break;
+
+                case 'getData':
+                    $pro->getAllData();
+                break;
+
+                case 'delete':
+                    $pro->delete();
+                break;   
+                
+                case 'update';
+                    $pro->update();
+                break;
+
                 default:
                     $pro->index();
                 break;

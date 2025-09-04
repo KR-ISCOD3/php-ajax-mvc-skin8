@@ -34,8 +34,11 @@
             $deliveryModel = new Delivery();
             $deliveries = $deliveryModel->read($userid);
 
+            $count = 0;
             if (!empty($deliveries)) {
+
                 foreach ($deliveries as $delivery) {
+                    $count++;
                     $id = $delivery['id'];
                     $category = $delivery['category'];
                     $delivery_price = $delivery['delivery_price'];
@@ -43,7 +46,7 @@
 
                     echo <<<HTML
                         <tr class="align-middle">
-                            <td>$id</td>
+                            <td>$count</td>
                             <td>$category</td>
                             <td class="text-danger">$$delivery_price</td>
                             <td>
@@ -55,6 +58,7 @@
                                 <button title="Edit Data" 
                                         
                                         class="btn btn-outline-dark btn-edit" 
+
                                         data-id="$id" data-category="$category" 
                                         data-price="$delivery_price" 
                                         
@@ -64,9 +68,11 @@
                                     <i class="bi bi-pen-fill"></i>
                                 </button>
                                 <button 
-                                        class="btn btn-outline-danger btn-delete-delivery" 
-                                        data-id="$id" data-bs-toggle="modal" 
-                                        data-bs-target="#deleteDeliveryModal">
+                                    class="btn btn-outline-danger btn-delete-delivery"
+
+                                    data-id="$id" data-bs-toggle="modal" 
+                                    data-bs-target="#deleteDeliveryModal"
+                                >
 
                                     <i class="bi bi-trash3-fill"></i>
                                 </button>
