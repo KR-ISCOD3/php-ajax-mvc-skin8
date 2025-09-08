@@ -232,11 +232,14 @@
         });
 
         function fetchData(){
+           
+            
             $.ajax({
                 url:'index.php?page=productpage',
                 method:'post',
                 data:{
-                    func:'getData'
+                    func:'getData',
+                    userid: $('#userid').val()
                 },
                 success:function(echo){
 
@@ -365,6 +368,7 @@
             
         })
 
+
         $(document).on('click','.btn-update',function(){
 
             // console.log(
@@ -386,6 +390,7 @@
             $('#uppreview').attr('src','app/assets/uploads/'+$(this).data('image'));
             
         })
+
 
         $('#upimage').on('change', function (e) {
             const file = e.target.files[0];
@@ -438,5 +443,6 @@
                 }
             })
         })
+        
     })
 </script>

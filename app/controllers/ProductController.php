@@ -72,12 +72,14 @@
         }
 
         public function getAllData(){
+            $userid = $_POST['userid'];
             $productModel = new Product();
 
-            $items = $productModel->getAll();
-
+            $items = $productModel->getAll($userid);
+            $count = 0;
             if(!empty($items)){
                 foreach( $items as $item){
+                    $count++;
                     $id = $item['id'];
                     $name = $item['name'];
                     $price = $item['price'];
@@ -87,13 +89,13 @@
                     $type = $item['type'];
                     $type_id = $item['type_id'];
                     $username = $item['username'];
-
+                    
                     echo <<<HTML
                         <tr class="align-middle">
-                            <td>$id</td>
+                            <td>$count</td>
                             <td>
                                 <div class="d-flex align-items-center">
-                                    <img src="app/assets/uploads/$image" alt="" width="50px" height="50px" class="bg-danger object-fit-cover  product-img">
+                                    <img src="app/assets/uploads/$image" alt="" width="50px" height="50px" class="bg-secondary object-fit-cover  product-img">
                                     <p class="m-0 ms-2 fw-medium">$name</p>
                                 </div>
                             </td>

@@ -53,5 +53,5 @@
     <?php include 'app/views/includes/notfound.php' ?>
     <!-- Page not found -->
 </body>
-</html>
 <script src="app/assets/js/register.js"></script>
+</html>

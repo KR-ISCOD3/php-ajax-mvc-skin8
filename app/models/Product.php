@@ -21,7 +21,7 @@
             }
         }
 
-        public function getAll(){
+        public function getAll($id){
             $data = [];
 
             try{
@@ -38,9 +38,14 @@
                             u.name AS username
                         FROM products p
                         LEFT JOIN types t ON p.type_id = t.id
-                        LEFT JOIN users u ON p.user_id = u.id;";
+                        LEFT JOIN users u ON p.user_id = u.id
+                        WHERE p.user_id = ?;";
 
-                $rs = $this->conn->query($sql);
+                $stmt = $this->conn->prepare($sql);
+                $stmt->bind_param('i',$id);
+                $stmt->execute();
+
+                $rs = $stmt->get_result();
 
                 if($rs->num_rows > 0){
                     // associative array

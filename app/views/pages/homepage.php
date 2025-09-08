@@ -93,28 +93,8 @@
                             <td colspan="2">Price</td>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr class="align-middle">
-                            <td>#1</td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <img src="" alt="" style="width: 40px;height: 40px;">
-                                    <div class="ms-1">
-                                        <p class="m-0 fw-medium">Item Name U90</p>
-                                        <p class="m-0 text-secondary" style="font-size: 12px;">Foam</p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>x10</td>
-                            <td>
-                                <span class="text-danger fw-medium">$0.50</span>
-                            </td>
-                            <td class="text-end">
-                                <button class="btn btn-dark fw-bolder p-1 ">
-                                    🛒
-                                </button>
-                            </td>
-                        </tr>
+                    <tbody id="tableProduct">
+                        <!-- data product -->
                     </tbody>
                 </table>
             </div>
@@ -228,3 +208,46 @@
         
 </section>
 <!-- Home Section -->
+<input type="hidden" id="userid" value="<?= $_SESSION['person']['user_id'] ?>"> 
+<script>
+    $(document).ready(function(){
+
+        function fetchData(){
+           
+            
+            $.ajax({
+                url:'index.php?page=homepage',
+                method:'post',
+                data:{
+                    func:'getProduct',
+                    userid: $('#userid').val()
+                },
+                success:function(echo){
+
+                    $('#tableProduct').html(echo)
+                }
+            })
+        }
+
+        fetchData();
+
+        let cart = [];
+
+        $(document).on('click','.btn-order',function(){
+
+            console.log(
+                $(this).data("id"),
+                $(this).data("name"),
+                $(this).data("price"),
+            );
+
+            let id = $(this).data("id");
+            let name = $(this).data("name");
+            let price = $(this).data("price");
+
+            cart.push({id:id,name:name,price:price,qty:1})
+            
+            console.table(cart)
+        })
+    })
+</script>

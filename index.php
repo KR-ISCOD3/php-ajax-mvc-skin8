@@ -61,6 +61,10 @@
                 case 'logout':
                     $home->logout();
                 break;
+                
+                case 'getProduct';
+                    $home->getProduct();
+                break;
                 // default page to index function in HomeController
                 default:
                     $home->index();
