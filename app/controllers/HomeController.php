@@ -1,6 +1,7 @@
 <?php
 
     require_once 'app/models/Product.php';
+    require_once 'app/models/Delivery.php';
 
     class HomeController{
 
@@ -74,7 +75,33 @@
             }
         }
 
-       
+        public function getDeliveryPrice(){
+            $userid = $_POST['userid'] ?? "";
+
+            $deliveryModel = new Delivery();
+            $deliveries = $deliveryModel->read($userid);
+
+            $count = 0;
+            if (!empty($deliveries)) {
+
+                foreach ($deliveries as $delivery) {
+                    $count++;
+                    $id = $delivery['id'];
+                    $category = $delivery['category'];
+                    $delivery_price = $delivery['delivery_price'];
+                    // $created_at = $delivery['created_at'];
+
+                    echo <<<HTML
+                        <!-- <option value="" disabled selected>Select Delivery</option> -->
+                        <option data-price="$delivery_price" value="$id">$category</option>
+                    HTML;
+                }
+            } else {
+                echo <<<HTML
+                    <option value="">No Delivery</option>
+                HTML;
+            }
+        }
 
         public function logout(){
             session_unset();

@@ -65,6 +65,11 @@
                 case 'getProduct';
                     $home->getProduct();
                 break;
+
+                case 'getDelivery':
+                    $home->getDeliveryPrice();
+                break;
+                
                 // default page to index function in HomeController
                 default:
                     $home->index();

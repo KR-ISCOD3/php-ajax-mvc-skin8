@@ -118,49 +118,14 @@
                                 <td class="text-secondary">Sub-Total</td>
                             </tr>
                         </thead>
-                        <tbody>
-                            <!-- <tr class="align-middle">
-                                <td>1</td>
-                                <td>Lip Stick</td>
-                                <td>$1.50</td>
-                                <td class="col-2">
-                                    <input min="0" value="2" type="number" name="" id="" class="form-control shadow-none border">
-                                </td>
-                                <td>
-                                    $3.00
-                                </td>
-                            </tr>
-                            <tr class="align-middle">
-                                <td>1</td>
-                                <td>Lip Stick</td>
-                                <td>$1.50</td>
-                                <td class="col-2">
-                                    <input min="0" value="2" type="number" name="" id="" class="form-control shadow-none border">
-                                </td>
-                                <td>
-                                    $3.00
-                                </td>
-                            </tr>
-                            <tr class="align-middle">
-                                <td>1</td>
-                                <td>Lip Stick</td>
-                                <td>$1.50</td>
-                                <td class="col-2">
-                                    <input min="0" value="2" type="number" name="" id="" class="form-control shadow-none border">
-                                </td>
-                                <td>
-                                    $3.00
-                                </td>
-                            </tr> -->
-                            <tr>
-                                <td colspan="5 " class="text-center text-secondary">No Item order...</td>
-                            </tr>
+                        <tbody id="cartBody">
+                           <!-- cart item -->
                         </tbody>
                     </table>
                 </div>
                 <div class="d-flex justify-content-between align-items-center mt-3">
 
-                    <h5 class="m-0 ">Total: $9.00</h5>
+                    <h5 class="m-0" id="totalItem"></h5>
                     <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#process-order">
                         Process Order
                     </button>
@@ -180,16 +145,39 @@
                                 <label for="" class="form-label">Customer Tel*</label>
                                 <input required type="text" name="" id="" class="form-control border shadow-none mb-2" placeholder="Enter Customer Tel (+855)">
                                 <label for="" class="form-label">Customer Location*</label>
-                                <select name="" id=""  class="form-select border shadow-none mb-2" >
-                                    <option value="" disabled selected>Select Location</option>
-                                    <option value="">Phnom Penh</option>
-                                    <option value="">Kandal</option>
+                                <select name="province" id="province" class="form-select border shadow-none mb-2">
+                                    <option value="" disabled selected>Select Province</option>
+                                    <option value="Banteay Meanchey">Banteay Meanchey</option>
+                                    <option value="Battambang">Battambang</option>
+                                    <option value="Kampong Cham">Kampong Cham</option>
+                                    <option value="Kampong Chhnang">Kampong Chhnang</option>
+                                    <option value="Kampong Speu">Kampong Speu</option>
+                                    <option value="Kampong Thom">Kampong Thom</option>
+                                    <option value="Kampot">Kampot</option>
+                                    <option value="Kandal">Kandal</option>
+                                    <option value="Kep">Kep</option>
+                                    <option value="Koh Kong">Koh Kong</option>
+                                    <option value="Kratie">Kratie</option>
+                                    <option value="Mondulkiri">Mondulkiri</option>
+                                    <option value="Phnom Penh">Phnom Penh</option>
+                                    <option value="Preah Sihanouk">Preah Sihanouk</option>
+                                    <option value="Preah Vihear">Preah Vihear</option>
+                                    <option value="Pursat">Pursat</option>
+                                    <option value="Ratanakiri">Ratanakiri</option>
+                                    <option value="Siem Reap">Siem Reap</option>
+                                    <option value="Stung Treng">Stung Treng</option>
+                                    <option value="Svay Rieng">Svay Rieng</option>
+                                    <option value="Takeo">Takeo</option>
+                                    <option value="Oddar Meanchey">Oddar Meanchey</option>
+                                    <option value="Kampong Seila">Kampong Seila</option>
+                                    <option value="Tboung Khmum">Tboung Khmum</option>
+                                    <option value="Pailin">Pailin</option>
                                 </select>
+
                                 <label for="" class="form-label">Delievery Price*</label>
-                                <select name="" id=""  class="form-select border shadow-none" >
+                                <select name="" id="delivery"  class="form-select border shadow-none" >
                                     <option value="" disabled selected>Select Delievery Price</option>
-                                    <option value="">$1.00</option>
-                                    <option value="">$2.00</option>
+                                    <!-- data delivery -->
                                 </select>
                                 <div class="modal-footer mt-4">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -229,9 +217,61 @@
             })
         }
 
+        function fetchDelivery(){
+               
+            $.ajax({
+                url:'index.php?page=homepage',
+                method:'post',
+                data:{
+                    func:'getDelivery',
+                    userid: $('#userid').val()
+                },
+                success:function(echo){
+
+                    $('#delivery').html(echo)
+                }
+            })
+        }
+
+        fetchDelivery()
         fetchData();
 
         let cart = [];
+
+        function renderCart(){
+            let cartBody = $('#cartBody');
+            cartBody.empty();
+
+            if(cart.length === 0){
+                cartBody.html(`<tr> <td colspan="5 " class="text-center text-secondary">No Item order...</td> </tr>`);
+                $('#totalItem').text('Total: $0.00');
+                return
+            }
+
+            cart.forEach((item,index)=>{
+                
+                cartBody.append(`
+                    <tr class="align-middle">
+                        <td>${item.id}</td>
+                        <td>${item.name}</td>
+                        <td>$${item.price}</td>
+                        <td class="col-2">
+                            <input min="0" value="${item.qty}" type="number" name="" 
+                            data-id="${item.id}" 
+                            class="form-control shadow-none border qty-item">
+                        </td>
+                        <td>
+                            $${item.subTotal}
+                        </td>
+                    </tr>
+                `)
+            })
+
+            let total = cart.reduce((prev,cur)=>prev + cur.subTotal,0);
+            $('#totalItem').text('Total: $'+total.toFixed(2));
+        }   
+
+        renderCart();
 
         $(document).on('click','.btn-order',function(){
 
@@ -245,9 +285,39 @@
             let name = $(this).data("name");
             let price = $(this).data("price");
 
-            cart.push({id:id,name:name,price:price,qty:1})
+            let existItem = cart.find(item => item.id === id)
+
+            if(existItem){
+                existItem.qty += 1;
+                existItem.subTotal = existItem.qty * existItem.price;
+            }else{
+                cart.push({id:id,name:name,price:price,qty:1,subTotal:price})
+            }
             
             console.table(cart)
+
+            renderCart();
+        })
+
+
+        $(document).on('input','.qty-item',function(){
+            let id = $(this).data('id');
+            let qty = parseInt($(this).val());
+
+            let item = cart.find(p => p.id == id);
+            
+            if(item){
+                item.qty = qty > 0 ? qty : 0;   
+                item.subTotal = item.price * item.qty ;
+            }
+
+
+            if(qty == 0){
+                cart = cart.filter((item)=>item.id != id) 
+            }
+
+            renderCart();
+
         })
     })
 </script>
