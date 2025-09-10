@@ -24,6 +24,16 @@
         //     }
         // }
 
+        public function createCustomer($tel,$location,$delivery_id){
+            $stmt = $this->conn->prepare("INSERT INTO customers (tel, location, delivery_id) VALUES (?, ?, ?)");
+            $stmt->bind_param('ssi',$tel,$location,$delivery_id);
+
+            if($stmt->execute()){
+                return $this->conn->insert_id;
+            }else{
+                return false;
+            }   
+        }
     }
 ?>
 

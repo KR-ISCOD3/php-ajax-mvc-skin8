@@ -141,11 +141,11 @@
                             <button type="button" class="btn-close shadow-none border" data-bs-dismiss="modal"></button>
                         </div>
                         <div class="modal-body px-4">
-                            <form action="">
+                            <form id='formOrder'>
                                 <label for="" class="form-label">Customer Tel*</label>
-                                <input required type="text" name="" id="" class="form-control border shadow-none mb-2" placeholder="Enter Customer Tel (+855)">
+                                <input required type="text" name="tel" id="tel" class="form-control border shadow-none mb-2" placeholder="Enter Customer Tel (+855)">
                                 <label for="" class="form-label">Customer Location*</label>
-                                <select name="province" id="province" class="form-select border shadow-none mb-2">
+                                <select name="location" id="location" class="form-select border shadow-none mb-2">
                                     <option value="" disabled selected>Select Province</option>
                                     <option value="Banteay Meanchey">Banteay Meanchey</option>
                                     <option value="Battambang">Battambang</option>
@@ -175,13 +175,13 @@
                                 </select>
 
                                 <label for="" class="form-label">Delievery Price*</label>
-                                <select name="" id="delivery"  class="form-select border shadow-none" >
+                                <select name="delivery" id="delivery"  class="form-select border shadow-none" >
                                     <option value="" disabled selected>Select Delievery Price</option>
                                     <!-- data delivery -->
                                 </select>
                                 <div class="modal-footer mt-4">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-dark">Confirm Order</button>
+                                    <button class="btn btn-dark">Confirm Order</button>
                                 </div>
                             </form>
                         </div>                                   
@@ -199,6 +199,8 @@
 <input type="hidden" id="userid" value="<?= $_SESSION['person']['user_id'] ?>"> 
 <script>
     $(document).ready(function(){
+
+
 
         function fetchData(){
            
@@ -318,6 +320,18 @@
 
             renderCart();
 
+        })
+
+
+        $('#formOrder').on('submit',function(e){
+            e.preventDefault();
+
+            let tel = $('#tel').val();
+            let location = $('#location').val();
+            let delivery_id = $('#delivery').val();
+            
+            console.log(tel,location,delivery_id);
+            
         })
     })
 </script>

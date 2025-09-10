@@ -2,6 +2,7 @@
 
     require_once 'app/models/Product.php';
     require_once 'app/models/Delivery.php';
+    require_once 'app/models/Home.php';
 
     class HomeController{
 
@@ -12,6 +13,13 @@
         }
         
         public function order(){
+            $homeModel = new Home();
+
+            $tel = $_POST['tel'];
+            $location = $_POST['location'];
+            $delivery_id = $_POST['delivery_id'];
+
+            $cusId = $homeModel->createCustomer($tel,$location,$delivery_id);
 
         }
 

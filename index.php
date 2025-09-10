@@ -69,7 +69,11 @@
                 case 'getDelivery':
                     $home->getDeliveryPrice();
                 break;
-                
+
+                case 'order':
+                    $home->order();
+                break;
+
                 // default page to index function in HomeController
                 default:
                     $home->index();
