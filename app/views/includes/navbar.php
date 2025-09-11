@@ -7,7 +7,7 @@
         </div>
         <h6 class="m-0">
             Mr.<?= $_SESSION['person']['username'] ?? null ?>
-            id=<?= $_SESSION['person']['user_id'] ?? null ?>
+            <!-- id=-->
         </h6>
     </div>
 </header>

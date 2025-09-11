@@ -15,11 +15,22 @@
         public function order(){
             $homeModel = new Home();
 
+            $cart = $_POST['cart'];
+            $userid = $_POST['userid'];
+            
             $tel = $_POST['tel'];
             $location = $_POST['location'];
             $delivery_id = $_POST['delivery_id'];
 
             $cusId = $homeModel->createCustomer($tel,$location,$delivery_id);
+
+            $rs = $homeModel->order($cusId,$userid,$cart);
+
+            if($rs){
+                echo 'success';
+            }else{
+                echo $rs;
+            }
 
         }
 

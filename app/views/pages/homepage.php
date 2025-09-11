@@ -6,7 +6,7 @@
     <!-- card-section -->
     <div class="row m-0">
         
-        <!-- summary card -->
+        <!-- summary card --> 
         <div class="col-3 pe-3 ps-0 py-1">
             <div class="rounded-3 border py-2 px-3">
                 <div class="d-flex justify-content-between align-items-center">
@@ -126,7 +126,7 @@
                 <div class="d-flex justify-content-between align-items-center mt-3">
 
                     <h5 class="m-0" id="totalItem"></h5>
-                    <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#process-order">
+                    <button class="btn btn-dark btn-process" data-bs-toggle="modal" data-bs-target="#process-order">
                         Process Order
                     </button>
                 </div>
@@ -196,7 +196,8 @@
         
 </section>
 <!-- Home Section -->
-<input type="hidden" id="userid" value="<?= $_SESSION['person']['user_id'] ?>"> 
+<input type="hidden" id="userid" value="<?= $_SESSION['person']['user_id'] ?>">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
 <script>
     $(document).ready(function(){
 
@@ -240,6 +241,11 @@
 
         let cart = [];
 
+        
+        if(cart.length == 0){
+            $('.btn-process').prop('disabled',true)
+        }
+
         function renderCart(){
             let cartBody = $('#cartBody');
             cartBody.empty();
@@ -247,6 +253,7 @@
             if(cart.length === 0){
                 cartBody.html(`<tr> <td colspan="5 " class="text-center text-secondary">No Item order...</td> </tr>`);
                 $('#totalItem').text('Total: $0.00');
+                $('.btn-process').prop('disabled',true)
                 return
             }
 
@@ -271,6 +278,10 @@
 
             let total = cart.reduce((prev,cur)=>prev + cur.subTotal,0);
             $('#totalItem').text('Total: $'+total.toFixed(2));
+
+            if(cart.length > 0){
+                $('.btn-process').prop('disabled',false)
+            }
         }   
 
         renderCart();
@@ -329,8 +340,38 @@
             let tel = $('#tel').val();
             let location = $('#location').val();
             let delivery_id = $('#delivery').val();
-            
-            console.log(tel,location,delivery_id);
+
+            // console.log(tel,location,delivery_id);
+            $.ajax({
+                url:'index.php?page=homepage',
+                method:'post',
+                data:{
+                    func:'order',
+                    tel:tel,
+                    location:location,
+                    delivery_id:delivery_id,
+                    userid:$('#userid').val(),
+                    cart:cart
+                },
+                success:function(echo){
+                    echo = echo.trim();
+                    console.log(echo);
+
+                    $('#formOrder')[0].reset();
+                    $('#process-order').modal('hide');
+                    Swal.fire({
+                        title: "Delete Success!",
+                        text: "You clicked the button!",
+                        icon: "success",
+                        timer: 1300,
+                        showCloseButton: true,   // display the X button
+                        showConfirmButton: false // hide the OK button
+                    });
+                    
+                    cart = [];
+                    renderCart();
+                }
+            })
             
         })
     })
